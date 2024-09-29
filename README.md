@@ -1,2 +1,2 @@
-# EdgeML-with-Raspberry-Pi
-ML Hands-On with the Raspberry Pi
+# EdgeAI-with-Raspberry-Pi
+DL and GenAI Hands-On with the Raspberry Pi
