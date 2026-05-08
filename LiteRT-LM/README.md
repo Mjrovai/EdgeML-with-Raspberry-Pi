@@ -746,4 +746,4 @@ The most important mental model to take away is the **Engine / Conversation sepa
 - **Gemma 4 E2B model:** [huggingface.co/litert-community/gemma-4-E2B-it-litert-lm](https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm)
 - **LiteRT-Optimized INT8 LLM for Raspberry Pi (ICCV Workshop 2025):** [openaccess.thecvf.com](https://openaccess.thecvf.com/content/ICCV2025W/AIM/papers/Yoon_LiteRT-Optimized_INT8_LLM_for_Raspberry_Pi4_Deployment_ICCVW_2025_paper.pdf)
 - **Google AI Edge Gallery (Android/iOS demo app):** [github.com/google-ai-edge/gallery](https://github.com/google-ai-edge/gallery)
-- **Study Notebook for this chapter:** [`LiteRT-LM-Test.ipynb`](https://github.com/Mjrovai/EdgeML-with-Raspberry-Pi)
+- **Study Notebook for this chapter:** [`LiteRT-LM-Test.ipynb`](https://github.com/Mjrovai/EdgeML-with-Raspberry-Pi/blob/main/LiteRT-LM/LiteRT-LM-Test.ipynb))
