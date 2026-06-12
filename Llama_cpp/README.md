@@ -129,7 +129,7 @@ wget https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/main/mmproj-F16.gg
   -O Qwen3.5-0.8B-mmproj-F16.gguf
 ```
 
-The `-O` (capital O) renames the downloaded file. Watch this — lowercase `-o` is wget's *log-file* flag, which saves the project under its original name and writes wget's log to the file you meant to create.
+The `-O` (capital O) renames the downloaded file. Watch this — lowercase `-o` is wget's *log-file* flag, which saves the projector under its original name and writes wget's log to the file you meant to create.
 
 Expected tokens/s from `llama-bench`:
 
@@ -191,7 +191,7 @@ The built-in UI has an attachment button (`+`) that accepts images and video, th
 
 ![](./images/png/gui.png)
 
-Type a text question and the model answers directly at around 10 tk/s. Turn on `Reasoning,` and the answers improve. This is a very small model, so its answers often aren't correct.
+Type a text question and the model answers directly at around 10 tk/s. Turn on `Reasoning`, and the answers improve. This is a very small model, so its answers often aren't correct.
 
 Now an image. Ask the model to describe it. Captioning is where this model shines — from start to finish in about 20 seconds, with the image itself processed in roughly 5 seconds.
 
@@ -265,15 +265,14 @@ Besides the server, we can test the models directly on the terminal, as we did w
 ### `llama-mtmd-cli`
 
 - Newer CLI built on **libmtmd**, introduced to replace the older, model‑specific multimodal CLIs like the ones tested here.
-- Provides a **single unified interface** for multimodal models (text + images, and is designed to handle audio as well, so you don’t need a different binary per architecture.
-- Tightly integrated with the “multi‑slot, multi‑draft” (MTMD) context machinery and speculative checkpointing / multi‑token prediction work in llama.cpp, so it can drive more advanced decoding configurations for those models.
+- Provides a **single unified interface** for multimodal models (text + images, and is designed to handle audio as well), so you don’t need a different binary per architecture.
 
 Let's do an example. On a terminal, enter with the command: 
 
 ```bash
 ./build/bin/llama-mtmd-cli \
-  -m       ./models/Qwen_Qwen3.5-0.8B-Q8_0.gguf \
-  --mmproj ./models/mmproj-F16.gguf \
+  -m       ~/models/Qwen3.5-0.8B-Q8_0.gguf \
+  --mmproj ~/models/Qwen3.5-0.8B-mmproj-F16.gguf \
   -c 4096 -t 4 \
   -n 1024 \
   --jinja \
@@ -321,7 +320,7 @@ cd ~/llama.cpp
 
 The examples assume `http://localhost:8081`; swap in the Pi's LAN address if you're calling from a laptop.
 
-If you want the model runing without reasoning, you can add the two tags to the above command as shown below:
+If you want the model running without reasoning, you can add the two tags to the above command as shown below:
 
 ```bash
 ./build/bin/llama-server \
@@ -383,7 +382,7 @@ print(f"\n[INFO] {out_tokens} tokens in {dt:.2f}s "
       f"= {out_tokens / dt:.1f} tok/s")
 ```
 
-`resp.usage` carries `prompt_tokens`, `completion_tokens`, and `total_tokens`. Dividing output tokens by wall-clock time gives the generation rate — should be near the value reported by llama-bench, minus a little for HTTP overhead. Note the fumm time: `20.22s`, it includes the reasoning time, which was not printed. 
+`resp.usage` carries `prompt_tokens`, `completion_tokens`, and `total_tokens`. Dividing output tokens by wall-clock time gives the generation rate — should be near the value reported by llama-bench, minus a little for HTTP overhead. Note the full time (or "wall-clock time"): `20.22s`, it includes the reasoning time, which was not printed. 
 
 ![](./images/png/infer-python.png)
 
@@ -405,18 +404,18 @@ print(data["timings"]["predicted_per_second"], "tok/s (server-measured)")
 
 ![](./images/png/infer-python-2.png)
 
-We can see different tokens per second measurements with the two above approuchs, but both numbers are correct — they're just measuring different stretches of time.
+We can see different per-second token counts with the above, but both numbers are correct — they're just measuring different time intervals in two approaches .
 
-The **client version** (1) divides by wall-clock: 117 tokens ÷ 20.22 s = 5.8. That 20.22 s is everything — the HTTP round trip, JSON serialization, the server's prompt-processing (prefill) pass, *and* the token generation. On the **plain version** (2), the server's `predicted_per_second` (6.36) is the generation phase only. `llama.cpp` times the decode loop in isolation and excludes prefill and all the HTTP overhead. Same ~117 tokens on top, smaller number on the bottom, so the rate comes out higher. That gap between 5.8 and 6.36 is essentially the prompt-processing plus transport cost.
+The **client version** (1) divides by wall-clock: 117 tokens ÷ 20.22 s = 5.8. That 20.22 s is everything — the HTTP round trip, JSON serialization, the server's prompt-processing (prefill) pass, *and* the token generation. In the **plain version** (2), the server's `predicted_per_second` (6.36) applies only to the generation phase. `llama.cpp` times the decode loop in isolation, excluding prefill and all HTTP overhead. Same ~117 tokens on top, smaller number on the bottom, so the rate comes out higher. That gap between 5.8 and 6.36 is essentially the prompt-processing plus transport cost.
 
 > On top of that, these were two separate requests, so they're not the same generation. With sampling on, the token count and timing vary run to run, which adds a little noise to the comparison.
 >
 
-The thing actually worth your attention is the **117 tokens**. The visible answer — "The capital of Brazil is **Brasília**." — is maybe 10 tokens. The other ~107 are a hidden `<think>` block: Gemma4 (and also the Qwen 3.5) is reasoning before it answers, the parser strips the thinking out of `message.content`, but every one of those tokens still counts in `usage.completion_tokens` and still costs decode time. That's why a one-line answer took 20 seconds. This is exactly the reasoning-mode behavior from earlier — turn it off and you'll watch both the token count and the wall-clock drop hard. 
+The thing actually worth your attention is the **117 tokens**. The visible answer — "The capital of Brazil is **Brasília**." — is maybe 10 tokens. The other ~107 are a hidden `<think>` block: Gemma4 (and also the Qwen 3.5) is reasoning before it answers, the parser strips the thinking out of the `message.content`, but every one of those tokens still counts in `usage.completion_tokens`, and still costs decode time. That's why a one-line answer took 20 seconds. This is exactly the reasoning-mode behavior from earlier — turn it off, and you'll watch both the token count and the wall-clock drop hard. 
 
-**NOTES:** If you want a clean apples-to-apples reading, pull both numbers from the *same* request — the `requests` version already has the raw JSON, so read `data["usage"]` and `data["timings"]` together instead of comparing across two scripts. And 6.36 sitting below the ~6.63 tok/s `llama-bench` showed is normal: bench measures an idealized decode with an empty context, while real serving runs with the chat template and a populated KV cache, and if you use a SD-card Pi under sustained load is a prime throttling candidate — keep an eye on `vcgencmd measure_temp` while it generates.
+**NOTES:** If you want a clean apples-to-apples reading, pull both numbers from the *same* request — the `requests` version already has the raw JSON, so read `data["usage"]` and `data["timings"]` together instead of comparing across two scripts. And 6.36 sitting below the ~6.63 tok/s `llama-bench` showed is normal: bench measures an idealized decode with an empty context, while real serving runs with the chat template and a populated KV cache, and if you use an SD-card Pi under sustained load, it is a prime throttling candidate — keep an eye on `vcgencmd measure_temp` while it generates.
 
-In short, use the server-measured `predicted_per_second` as "generation speed," since it's the hardware-honest figure and it lines up with how `llama-bench` reports. The wall-clock rate is the better number only when you want to show *end-to-end* latency the user actually feels, so both have a place — just label which is which.
+In short, use the server-measured `predicted_per_second` as "generation speed" since it's the hardware-honest figure and aligns with how `llama-bench` reports. The wall-clock rate is the better number only when you want to show *end-to-end* latency the user actually feels, so both have a place — just label which is which.
 
 ### Streaming
 
@@ -443,7 +442,7 @@ for chunk in stream:
         print(chunk.choices[0].delta.content, end="", flush=True)
 ```
 
-> On a 5B (with 2 efective) model running on a CPU, streaming at 6 tokens/s is the difference between an app that feels responsive and one that feels broken. Note that at the above code, will streaming only the final answer, not the reasining phase if it is enable.
+> On a 5B (with 2B effective) model running on a CPU, streaming at 6 tokens/s is the difference between an app that feels responsive and one that feels broken. Note that the above code will stream only the final answer, not the reasoning phase if it is enabled.
 >
 
 ### System prompt and sampling
@@ -509,7 +508,7 @@ To caption a live frame, reuse the `capture_image()` helper from the Ollama chap
 
 **Testing with reasoning disabled:**
 
-If we disable reasoning, the model will perform worse. Running the same image, we now note that the model sees 3 cats instead of one cat and one dog. 
+If we disable reasoning, the model will perform worse. When running the same image, we now observe that the model sees 3 cats instead of 1 cat and 1 dog. 
 
 ![](./images/png/caption-python.png)
 
@@ -562,7 +561,7 @@ print(f"wall         : {dt:.1f}s total")
 
 ![](./images/png/size-test.png)
 
-Note that the same image, but now 512x417, was processed in around 75s. Half of the time, it took with the original size. 
+Note that the same image, now 512x417, was processed in around 75s, which is under half the time it took at the original size. 
 
 If you want to push further, lowering `--image-max-tokens` on the server (try 128 instead of 256) caps how many tokens the image is compressed into, which speeds both encoding and the attention over those tokens, at some loss of fine detail. 
 
@@ -600,7 +599,7 @@ resp = client.chat.completions.create(
 print(resp.choices[0].message.content)
 ```
 
-Let's try the Apollo VIII 68 Christmas 's message again:
+Let's try the Apollo 8 1968 Christmas message again:
 
 ![](./images/png/apollo8.png)
 
