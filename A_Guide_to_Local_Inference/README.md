@@ -559,7 +559,7 @@ The pattern behind all three targets is the same one driving edge AI generally: 
 - [Qwen3.5 0.8B GGUF](https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF)
 - [Gemma 4 QAT announcement (Google)](https://blog.google/innovation-and-ai/technology/developers-tools/quantization-aware-training-gemma-4/)
 - [Gemma 4 QAT GGUFs](https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf and https://unsloth.ai/docs/models/gemma-4/qat)
-- [Ornith-1.0-9B](https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B and GGUF: https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B-GGUF)
+- [Ornith-1.0-9B](https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B) and [GGUF](https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B-GGUF)
 - [LFM2.5 announcement (Liquid AI)](https://www.liquid.ai/blog/introducing-lfm2-5-the-next-generation-of-on-device-ai) and the [Thinking variant](https://www.liquid.ai/blog/lfm2-5-1-2b-thinking-on-device-reasoning-under-1gb)
 - [LFM2.5-1.2B on Hugging Face](https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct) and the ([GGUF](https://huggingface.co/unsloth/LFM2.5-1.2B-Thinking-GGUF))
 - [Best small language models in 2026, practical comparison](https://tinyweights.dev/posts/best-small-language-models-2026/)
