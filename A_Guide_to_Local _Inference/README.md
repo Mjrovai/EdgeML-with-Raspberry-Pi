@@ -488,6 +488,45 @@ flowchart TD
 
 The pattern behind all three targets is the same one driving edge AI generally: the model comes to the data, not the other way around. Once a $59 board with an ARM core can turn sensor logs into sentences offline, "do I really need the cloud for this?" becomes a question worth asking about every language task in your project.
 
+## Quick Comparison Summary
+
+| Criterion               | Ollama | LM Studio | Llama.cpp |
+| ----------------------- | ------ | --------- | --------- |
+| Ease of Use             | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐     | ⭐⭐⭐       |
+| Performance             | ⭐⭐⭐⭐   | ⭐⭐⭐       | ⭐⭐⭐⭐⭐     |
+| Control & Customization | ⭐⭐⭐    | ⭐⭐⭐       | ⭐⭐⭐⭐⭐     |
+| Installation Simplicity | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐      | ⭐⭐⭐       |
+| Production/Serving      | ⭐⭐⭐⭐   | ⭐⭐        | ⭐⭐⭐⭐⭐     |
+| **Uno-Q**               | ⭐⭐     | ❌         | ⭐⭐⭐⭐⭐     |
+| **Raspberry Pi**        | ⭐⭐⭐    | ❌         | ⭐⭐⭐⭐⭐     |
+
+### Uno-Q Breakdown
+
+| Tool          | Fits Embedded? | Why                                                          |
+| ------------- | -------------- | ------------------------------------------------------------ |
+| **Ollama**    | ⚠️ Limited      | Works on ARM, but the runtime + model management overhead is heavy for constrained devices. No fine-grained memory control. Workaround needed for installation. |
+| **LM Studio** | ❌ Not viable   | GUI-only, requires 8GB+ RAM just for the UI layer. Designed for desktop dev machines only. |
+| **Llama.cpp** | ✅ Excellent    | Full control over context size, quantization, and memory mapping. Can strip to <100MB total with custom builds. |
+
+### Raspberry Pi Breakdown
+
+| Tool          | Fits RPi?         | Why                                                          |
+| ------------- | ----------------- | ------------------------------------------------------------ |
+| **Ollama**    | ✅ Works (RPi 4/5) | Official ARM support, easy `apt install`, but heavier RAM usage and less control over memory limits. Best for RPi 4GB+. |
+| **LM Studio** | ❌ No              | Desktop GUI tool, no Linux ARM builds. Requires x86_64 with 8GB+ RAM. |
+| **Llama.cpp** | ✅ Excellent       | Pre-built ARM binaries available. Full control over context window and memory. Best for constrained environments. |
+
+### Bottom Line
+
+| Use Case                                 | Best Pick              |
+| ---------------------------------------- | ---------------------- |
+| Quick prototyping / getting started (PC) | **Ollama**             |
+| Visual testing / non-developers (PC)     | **LM Studio**          |
+| Production servers / CI/CD pipelines     | **Llama.cpp**          |
+| **Uno-Q**                                | **Llama.cpp**          |
+| **Raspberry Pi 4GB+ (convenience)**      | **Ollama / Llama.cpp** |
+| **Raspberry Pi low-RAM / edge deploy**   | **Llama.cpp**          |
+
 ---
 
 ## Sources and further reading
