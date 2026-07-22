@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" width="660" height="320" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" role="img" aria-label="Acceptance decays with draft position">
+<rect width="660" height="320" fill="#fdfdfc"/>
+<text x="40" y="34" font-size="16" font-weight="600" fill="#1a1a18">Acceptance decays with draft position</text>
+<text x="40" y="54" font-size="12" fill="#6b6963">n=3:  mean len = 1 + 0.68 + 0.49 + 0.24 = 2.41</text>
+<line x1="70" y1="250.0" x2="620" y2="250.0" stroke="#e1e0d9"/>
+<text x="60" y="254.0" font-size="11" fill="#6b6963" text-anchor="end">0.00</text>
+<line x1="70" y1="210.0" x2="620" y2="210.0" stroke="#e1e0d9"/>
+<text x="60" y="214.0" font-size="11" fill="#6b6963" text-anchor="end">0.25</text>
+<line x1="70" y1="170.0" x2="620" y2="170.0" stroke="#e1e0d9"/>
+<text x="60" y="174.0" font-size="11" fill="#6b6963" text-anchor="end">0.50</text>
+<line x1="70" y1="130.0" x2="620" y2="130.0" stroke="#e1e0d9"/>
+<text x="60" y="134.0" font-size="11" fill="#6b6963" text-anchor="end">0.75</text>
+<line x1="70" y1="90.0" x2="620" y2="90.0" stroke="#e1e0d9"/>
+<text x="60" y="94.0" font-size="11" fill="#6b6963" text-anchor="end">1.00</text>
+<rect x="100.2" y="90.0" width="77.0" height="160.0" fill="#6b6963" rx="2" opacity="0.45"/>
+<text x="138.8" y="82.0" font-size="11" fill="#1a1a18" text-anchor="middle">1.00</text>
+<text x="138.8" y="270.0" font-size="11" fill="#6b6963" text-anchor="middle">base token</text>
+<rect x="237.8" y="141.2" width="77.0" height="108.8" fill="#2a6fb0" rx="2" opacity="1"/>
+<text x="276.2" y="133.2" font-size="11" fill="#1a1a18" text-anchor="middle">0.68</text>
+<text x="276.2" y="270.0" font-size="11" fill="#6b6963" text-anchor="middle">pos 1</text>
+<rect x="375.2" y="171.6" width="77.0" height="78.4" fill="#2a6fb0" rx="2" opacity="1"/>
+<text x="413.8" y="163.6" font-size="11" fill="#1a1a18" text-anchor="middle">0.49</text>
+<text x="413.8" y="270.0" font-size="11" fill="#6b6963" text-anchor="middle">pos 2</text>
+<rect x="512.8" y="211.6" width="77.0" height="38.4" fill="#2a6fb0" rx="2" opacity="1"/>
+<text x="551.2" y="203.6" font-size="11" fill="#1a1a18" text-anchor="middle">0.24</text>
+<text x="551.2" y="270.0" font-size="11" fill="#6b6963" text-anchor="middle">pos 3</text>
+<text x="20" y="170" font-size="11" fill="#6b6963" text-anchor="middle" transform="rotate(-90 20 170)">acceptance rate</text>
+<text x="345" y="306" font-size="11" fill="#6b6963" text-anchor="middle">each position adds its own rate to the mean; cost grows linearly</text>
+</svg>

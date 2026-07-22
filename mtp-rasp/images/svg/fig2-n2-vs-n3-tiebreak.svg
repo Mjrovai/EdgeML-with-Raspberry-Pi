@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" role="img" aria-label="n=2 vs n=3 tie-break — three interleaved pairs">
+<rect width="640" height="380" fill="#fdfdfc"/>
+<text x="40" y="34" font-size="16" font-weight="600" fill="#1a1a18">n=2 vs n=3 tie-break — three interleaved pairs</text>
+<text x="40" y="54" font-size="12" fill="#6b6963">alternating order cancels thermal drift; each bar is one run</text>
+<line x1="70" y1="310.0" x2="600" y2="310.0" stroke="#e1e0d9"/>
+<text x="60" y="314.0" font-size="11" fill="#6b6963" text-anchor="end">11.5</text>
+<line x1="70" y1="247.7" x2="600" y2="247.7" stroke="#e1e0d9"/>
+<text x="60" y="251.7" font-size="11" fill="#6b6963" text-anchor="end">11.7</text>
+<line x1="70" y1="185.4" x2="600" y2="185.4" stroke="#e1e0d9"/>
+<text x="60" y="189.4" font-size="11" fill="#6b6963" text-anchor="end">11.9</text>
+<line x1="70" y1="123.1" x2="600" y2="123.1" stroke="#e1e0d9"/>
+<text x="60" y="127.1" font-size="11" fill="#6b6963" text-anchor="end">12.1</text>
+<rect x="96.5" y="229.0" width="53.0" height="81.0" fill="#2a6fb0" rx="2"/>
+<text x="123.0" y="223.0" font-size="10" fill="#1a1a18" text-anchor="middle">11.76</text>
+<rect x="155.5" y="132.5" width="53.0" height="177.5" fill="#d1642a" rx="2"/>
+<text x="182.0" y="126.5" font-size="10" fill="#1a1a18" text-anchor="middle">12.07</text>
+<text x="158.3" y="330.0" font-size="11" fill="#6b6963" text-anchor="middle">pair 1</text>
+<rect x="273.2" y="235.3" width="53.0" height="74.7" fill="#2a6fb0" rx="2"/>
+<text x="299.7" y="229.3" font-size="10" fill="#1a1a18" text-anchor="middle">11.74</text>
+<rect x="332.2" y="132.5" width="53.0" height="177.5" fill="#d1642a" rx="2"/>
+<text x="358.7" y="126.5" font-size="10" fill="#1a1a18" text-anchor="middle">12.07</text>
+<text x="335.0" y="330.0" font-size="11" fill="#6b6963" text-anchor="middle">pair 2</text>
+<rect x="449.8" y="241.5" width="53.0" height="68.5" fill="#2a6fb0" rx="2"/>
+<text x="476.3" y="235.5" font-size="10" fill="#1a1a18" text-anchor="middle">11.72</text>
+<rect x="508.8" y="126.3" width="53.0" height="183.7" fill="#d1642a" rx="2"/>
+<text x="535.3" y="120.3" font-size="10" fill="#1a1a18" text-anchor="middle">12.09</text>
+<text x="511.7" y="330.0" font-size="11" fill="#6b6963" text-anchor="middle">pair 3</text>
+<rect x="450.0" y="96" width="11" height="11" fill="#2a6fb0"/><text x="466.0" y="106" font-size="11" fill="#6b6963">n=2</text>
+<rect x="510.0" y="96" width="11" height="11" fill="#d1642a"/><text x="526.0" y="106" font-size="11" fill="#6b6963">n=3</text>
+<text x="20" y="201" font-size="11" fill="#6b6963" text-anchor="middle" transform="rotate(-90 20 201)">tok/s</text>
+<text x="335" y="366" font-size="11" fill="#6b6963" text-anchor="middle">n=3 leads by 2.8%, every pair — real but small</text>
+</svg>

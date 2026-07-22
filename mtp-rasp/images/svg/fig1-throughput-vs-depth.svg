@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 410" width="720" height="410" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" role="img" aria-label="MTP draft depth vs decode throughput — Gemma 4 E2B QAT, Pi 5, 2 threads">
+<rect width="720" height="410" fill="#fdfdfc"/>
+<text x="40" y="34" font-size="16" font-weight="600" fill="#1a1a18">MTP draft depth vs decode throughput — Gemma 4 E2B QAT, Pi 5, 2 threads</text>
+<text x="40" y="54" font-size="12" fill="#6b6963">mean of 3 runs, thinking off, 300-word prose prompt</text>
+<line x1="70" y1="338.0" x2="680" y2="338.0" stroke="#e1e0d9"/>
+<text x="60" y="342.0" font-size="11" fill="#6b6963" text-anchor="end">6</text>
+<line x1="70" y1="300.2" x2="680" y2="300.2" stroke="#e1e0d9"/>
+<text x="60" y="304.2" font-size="11" fill="#6b6963" text-anchor="end">7</text>
+<line x1="70" y1="262.3" x2="680" y2="262.3" stroke="#e1e0d9"/>
+<text x="60" y="266.3" font-size="11" fill="#6b6963" text-anchor="end">8</text>
+<line x1="70" y1="224.5" x2="680" y2="224.5" stroke="#e1e0d9"/>
+<text x="60" y="228.5" font-size="11" fill="#6b6963" text-anchor="end">9</text>
+<line x1="70" y1="186.6" x2="680" y2="186.6" stroke="#e1e0d9"/>
+<text x="60" y="190.6" font-size="11" fill="#6b6963" text-anchor="end">10</text>
+<line x1="70" y1="148.8" x2="680" y2="148.8" stroke="#e1e0d9"/>
+<text x="60" y="152.8" font-size="11" fill="#6b6963" text-anchor="end">11</text>
+<line x1="70" y1="110.9" x2="680" y2="110.9" stroke="#e1e0d9"/>
+<text x="60" y="114.9" font-size="11" fill="#6b6963" text-anchor="end">12</text>
+<line x1="70" y1="229.0" x2="680" y2="229.0" stroke="#6b6963" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="676" y="221.0" font-size="11" fill="#6b6963" text-anchor="end">no MTP: 8.88 tok/s</text>
+<rect x="157.7" y="122.3" width="129.7" height="26.5" fill="#d1642a" opacity="0.10"/>
+<polyline points="70.0,229.0 171.7,132.5 273.3,131.4 375.0,306.2 476.7,305.8 578.3,316.4 680.0,321.7" fill="none" stroke="#2a6fb0" stroke-width="2.5"/>
+<circle cx="70.0" cy="229.0" r="4.5" fill="#2a6fb0"/>
+<text x="70.0" y="217.0" font-size="10" fill="#1a1a18" text-anchor="middle">8.88</text>
+<text x="70.0" y="358.0" font-size="11" fill="#6b6963" text-anchor="middle">no MTP</text>
+<text x="70.0" y="374.0" font-size="10" fill="#c9c7c0" text-anchor="middle">w=1</text>
+<circle cx="171.7" cy="132.5" r="6" fill="#d1642a"/>
+<text x="171.7" y="120.5" font-size="10" fill="#1a1a18" text-anchor="middle">11.43</text>
+<text x="171.7" y="358.0" font-size="11" fill="#6b6963" text-anchor="middle">n=2</text>
+<text x="171.7" y="374.0" font-size="10" fill="#c9c7c0" text-anchor="middle">w=3</text>
+<circle cx="273.3" cy="131.4" r="6" fill="#d1642a"/>
+<text x="273.3" y="119.4" font-size="10" fill="#1a1a18" text-anchor="middle">11.46</text>
+<text x="273.3" y="358.0" font-size="11" fill="#6b6963" text-anchor="middle">n=3</text>
+<text x="273.3" y="374.0" font-size="10" fill="#c9c7c0" text-anchor="middle">w=4</text>
+<circle cx="375.0" cy="306.2" r="4.5" fill="#2a6fb0"/>
+<text x="375.0" y="294.2" font-size="10" fill="#1a1a18" text-anchor="middle">6.84</text>
+<text x="375.0" y="358.0" font-size="11" fill="#6b6963" text-anchor="middle">n=4</text>
+<text x="375.0" y="374.0" font-size="10" fill="#c9c7c0" text-anchor="middle">w=5</text>
+<circle cx="476.7" cy="305.8" r="4.5" fill="#2a6fb0"/>
+<text x="476.7" y="293.8" font-size="10" fill="#1a1a18" text-anchor="middle">6.85</text>
+<text x="476.7" y="358.0" font-size="11" fill="#6b6963" text-anchor="middle">n=5</text>
+<text x="476.7" y="374.0" font-size="10" fill="#c9c7c0" text-anchor="middle">w=6</text>
+<circle cx="578.3" cy="316.4" r="4.5" fill="#2a6fb0"/>
+<text x="578.3" y="304.4" font-size="10" fill="#1a1a18" text-anchor="middle">6.57</text>
+<text x="578.3" y="358.0" font-size="11" fill="#6b6963" text-anchor="middle">n=6</text>
+<text x="578.3" y="374.0" font-size="10" fill="#c9c7c0" text-anchor="middle">w=7</text>
+<circle cx="680.0" cy="321.7" r="4.5" fill="#2a6fb0"/>
+<text x="680.0" y="309.7" font-size="10" fill="#1a1a18" text-anchor="middle">6.43</text>
+<text x="680.0" y="358.0" font-size="11" fill="#6b6963" text-anchor="middle">n=7</text>
+<text x="680.0" y="374.0" font-size="10" fill="#c9c7c0" text-anchor="middle">w=8</text>
+<text x="222.5" y="114.7" font-size="11" font-weight="600" fill="#d1642a" text-anchor="middle">plateau · 1.29x</text>
+<text x="375.0" y="336.2" font-size="10" fill="#6b6963" text-anchor="middle">cliff: n>=4 below baseline</text>
+<text x="375" y="396" font-size="11" fill="#6b6963" text-anchor="middle">--spec-draft-n-max  (w = verification batch width)</text>
+<text x="20" y="215" font-size="11" fill="#6b6963" text-anchor="middle" transform="rotate(-90 20 215)">tok/s</text>
+</svg>
