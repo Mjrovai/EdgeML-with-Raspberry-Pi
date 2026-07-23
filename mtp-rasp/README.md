@@ -30,7 +30,7 @@ So, E2B is Gemma 4's small variant, built with per-layer embeddings and MatForme
 
 E2B scores 9 on the Artificial Analysis index (AAII) against the 12B's 22. It is not a small 12B. It's a model for tasks with narrow scope — classify this sensor reading, fill this JSON schema, answer from this retrieved paragraph. <u>Ask it to reason across a long chain, and it will produce something confident and wrong.</u>
 
-Here are some models from the [Artificial Analysis Leaderboard](https://artificialanalysis.ai/leaderboards/models?size=tiny%2Csmall&weights=open&reasoning=reasoningArtificial):
+Here are some models from the [Artificial Analysis Leaderboard](https://artificialanalysis.ai/leaderboards/models):
 
 | Model                  | Creator | Total params | Active params | Context | AAII |
 | ---------------------- | ------- | ------------ | ------------- | ------- | ---- |
