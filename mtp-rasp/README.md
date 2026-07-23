@@ -24,9 +24,7 @@ Today (July 2026), the Gemma4 and the Qwen3.5 are the best models to run on lapt
 
 > Gemma 4 12B is a strong choice for local multimodal and agentic AI on laptops, offering near-26B reasoning (Gemma 4 26B A4B - AAII index: 26) in a form that can run on 16 GB Apple Silicon Macs or PCs with about 16 GB of GPU VRAM.
 
-But returning to the Raspberry Pi, the 12B QAT model or the Qwen3.5 9B technically loads on a 16 GB Pi and decodes at a speed that makes you close the terminal. And on an 8GB Raspberry Pi, the Gemma 4 E4B would not work, and the Qwen3.5 4B would be very slow, since it does not have the MTP option as the Gemma 4 and the Qwen 3.6.  
-
-> Testing the Qwen3.5 4B should be interesting given its high AAII index.
+But returning to the Raspberry Pi, the 12B QAT model or the Qwen3.5 9B technically loads on a 16 GB Pi and decodes at a speed that makes you close the terminal. And on an 8GB Raspberry Pi, the Gemma 4 E4B would not work, and the Qwen3.5 4B would be very slow (around 3 tk/s), since it does not have the MTP option as the Gemma 4 and the Qwen 3.6.  
 
 So, E2B is Gemma 4's small variant, built with per-layer embeddings and MatFormer-style nesting so the effective parameter count during inference is around 2B while the file on disk is larger. [Unsloth's memory table](https://unsloth.ai/docs/models/mtp) puts the 4-bit E2B at about 5 GB total, **including the MTP head** — which fits an 8 GB Pi with room for the OS, and fits a 16 GB Pi comfortably enough to run other things alongside it.
 
