@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <style>
+    .ttl { font-size: 15px; font-weight: 600; fill: #0f172a; }
+    .ax  { font-size: 11px; fill: #64748b; }
+    .cap { font-size: 11.5px; fill: #475569; }
+    .pt  { font-size: 11.5px; font-weight: 600; }
+    .zn  { font-size: 11px; font-weight: 600; fill: #94a3b8; }
+  </style>
+
+  <text x="16" y="26" class="ttl">Capability against measured speed, on an 8 GB Raspberry Pi 5</text>
+  <text x="16" y="46" class="cap">Both axes matter. The upper right is empty — that is the whole problem with edge inference.</text>
+
+  <!-- plot area: x 80..760, y 80..330 -->
+  <rect x="80" y="80" width="680" height="250" fill="#f8fafc"/>
+
+  <!-- usable zone shading -->
+  <rect x="330" y="80" width="430" height="250" fill="#ecfdf5"/>
+  <text x="545" y="100" class="zn" fill="#059669">responsive enough for an interactive loop</text>
+
+  <line x1="80" y1="330" x2="760" y2="330" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="80" y1="80" x2="80" y2="330" stroke="#94a3b8" stroke-width="1.2"/>
+
+  <!-- x = tok/s 0..16 -> 80 + v*42.5 -->
+  <g class="ax" text-anchor="middle">
+    <line x1="80" y1="330" x2="80" y2="335" stroke="#94a3b8"/><text x="80" y="350">0</text>
+    <line x1="250" y1="330" x2="250" y2="335" stroke="#94a3b8"/><text x="250" y="350">4</text>
+    <line x1="420" y1="330" x2="420" y2="335" stroke="#94a3b8"/><text x="420" y="350">8</text>
+    <line x1="590" y1="330" x2="590" y2="335" stroke="#94a3b8"/><text x="590" y="350">12</text>
+    <line x1="760" y1="330" x2="760" y2="335" stroke="#94a3b8"/><text x="760" y="350">16</text>
+    <text x="420" y="372" class="cap">generation speed, tokens per second (tuned + MTP)</text>
+  </g>
+
+  <!-- y = AAII 0..24 -> 330 - v*10.4 -->
+  <g class="ax" text-anchor="end">
+    <line x1="75" y1="330" x2="80" y2="330" stroke="#94a3b8"/><text x="70" y="334">0</text>
+    <line x1="75" y1="278" x2="80" y2="278" stroke="#94a3b8"/><text x="70" y="282">5</text>
+    <line x1="75" y1="226" x2="80" y2="226" stroke="#94a3b8"/><text x="70" y="230">10</text>
+    <line x1="75" y1="174" x2="80" y2="174" stroke="#94a3b8"/><text x="70" y="178">15</text>
+    <line x1="75" y1="122" x2="80" y2="122" stroke="#94a3b8"/><text x="70" y="126">20</text>
+  </g>
+  <text x="34" y="205" class="cap" text-anchor="middle" transform="rotate(-90 34 205)">Artificial Analysis Index</text>
+
+  <!-- Qwen3.5 4B: 4.83 tok/s, AAII 20 -> x=285, y=122 -->
+  <circle cx="285" cy="122" r="10" fill="#db2777"/>
+  <text x="302" y="119" class="pt" fill="#db2777">Qwen3.5 4B</text>
+  <text x="302" y="134" class="ax">AAII 20 · 4.83 tok/s · 8.3 s per tool call</text>
+
+  <!-- Gemma E2B: 13.06 tok/s, AAII 9 -> x=635, y=236 -->
+  <circle cx="635" cy="236" r="10" fill="#2563eb"/>
+  <text x="560" y="262" class="pt" fill="#2563eb" text-anchor="middle">Gemma 4 E2B</text>
+  <text x="560" y="277" class="ax" text-anchor="middle">AAII 9 · 13.06 tok/s · 3.1 s per tool call</text>
+
+  <!-- doesn't fit / too slow markers -->
+  <g opacity="0.45">
+    <circle cx="118" cy="112" r="6" fill="#94a3b8"/>
+    <text x="130" y="116" class="ax">Qwen3.5 9B — 16 GB board, unusably slow</text>
+    <circle cx="112" cy="101" r="6" fill="#94a3b8"/>
+    <text x="130" y="96" class="ax">Gemma 4 12B — 16 GB board, unusably slow</text>
+    <circle cx="160" cy="205" r="6" fill="#94a3b8"/>
+    <text x="174" y="209" class="ax">Gemma 4 E4B — will not fit in 8 GB</text>
+    <circle cx="700" cy="247" r="6" fill="#94a3b8"/>
+    <text x="690" y="300" class="ax" text-anchor="middle">Qwen3.5 2B — fast, AAII 8</text>
+  </g>
+
+  <!-- arrow between the two -->
+  <path d="M 300 140 Q 460 200 620 226" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="5 3"/>
+  <text x="460" y="196" class="ax" fill="#b45309" text-anchor="middle">2.7× faster, less than half the index</text>
+
+  <line x1="80" y1="396" x2="800" y2="396" stroke="#e2e8f0"/>
+  <text x="80" y="416" class="cap">Tool-call time assumes a 40-token JSON reply. For an agent that wakes on a sensor reading, 8.3 s is fine and the reasoning gap is not.</text>
+  <text x="80" y="432" class="cap">For anything a person waits on, it is the other way round.</text>
+</svg>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <style>
+    .ttl { font-size: 15px; font-weight: 600; fill: #0f172a; }
+    .lbl { font-size: 12px; fill: #334155; }
+    .sm  { font-size: 10.5px; fill: #64748b; }
+    .cap { font-size: 11.5px; fill: #475569; }
+    .val { font-size: 12px; font-weight: 600; fill: #0f172a; }
+    .hd  { font-size: 12px; font-weight: 600; fill: #334155; }
+  </style>
+
+  <text x="16" y="26" class="ttl">Where a token's time actually goes</text>
+  <text x="16" y="46" class="cap">Each bar is one decode cycle. Divide by tokens produced to get the per-token cost that sets throughput.</text>
+
+  <!-- scale: 1 ms = 1.05 px, origin x=190 -->
+  <line x1="190" y1="300" x2="820" y2="300" stroke="#94a3b8" stroke-width="1.2"/>
+  <g class="sm" text-anchor="middle">
+    <line x1="190" y1="300" x2="190" y2="305" stroke="#94a3b8"/><text x="190" y="318">0</text>
+    <line x1="295" y1="300" x2="295" y2="305" stroke="#94a3b8"/><text x="295" y="318">100</text>
+    <line x1="400" y1="300" x2="400" y2="305" stroke="#94a3b8"/><text x="400" y="318">200</text>
+    <line x1="505" y1="300" x2="505" y2="305" stroke="#94a3b8"/><text x="505" y="318">300</text>
+    <line x1="610" y1="300" x2="610" y2="305" stroke="#94a3b8"/><text x="610" y="318">400</text>
+    <line x1="715" y1="300" x2="715" y2="305" stroke="#94a3b8"/><text x="715" y="318">500</text>
+    <line x1="820" y1="300" x2="820" y2="305" stroke="#94a3b8"/><text x="820" y="318">600</text>
+  </g>
+  <text x="505" y="338" class="cap" text-anchor="middle">milliseconds per cycle</text>
+
+  <text x="640" y="72" class="hd">tokens</text>
+  <text x="720" y="72" class="hd">ms / token</text>
+
+  <!-- GEMMA baseline: 110.7 ms, 1 token -->
+  <g>
+    <text x="180" y="98" class="lbl" text-anchor="end">Gemma baseline</text>
+    <text x="180" y="112" class="sm" text-anchor="end">2 threads</text>
+    <rect x="190" y="84" width="116" height="30" rx="3" fill="#93c5fd"/>
+    <text x="248" y="104" class="sm" fill="#1e3a8a" text-anchor="middle">verify 1</text>
+    <text x="655" y="104" class="val">1.00</text>
+    <text x="750" y="104" class="val">110.7</text>
+  </g>
+
+  <!-- GEMMA MTP n=2: drafts 9.8 + verify 117.5 + overhead 13.6 = 140.9, 1.84 tokens -->
+  <g>
+    <text x="180" y="146" class="lbl" text-anchor="end">Gemma MTP n=2</text>
+    <text x="180" y="160" class="sm" text-anchor="end">3 threads</text>
+    <rect x="190" y="132" width="10" height="30" rx="2" fill="#fbbf24"/>
+    <rect x="200" y="132" width="123" height="30" rx="3" fill="#2563eb"/>
+    <text x="261" y="152" class="sm" fill="#fff" text-anchor="middle">verify 3</text>
+    <rect x="323" y="132" width="15" height="30" rx="2" fill="#cbd5e1"/>
+    <text x="655" y="152" class="val">1.84</text>
+    <text x="750" y="152" class="val" fill="#2563eb">76.6</text>
+  </g>
+
+  <!-- QWEN baseline: 320.9 ms (1/3.116), 1 token -->
+  <g>
+    <text x="180" y="204" class="lbl" text-anchor="end">Qwen baseline</text>
+    <text x="180" y="218" class="sm" text-anchor="end">4 threads</text>
+    <rect x="190" y="190" width="337" height="30" rx="3" fill="#f9a8d4"/>
+    <text x="358" y="210" class="sm" fill="#831843" text-anchor="middle">verify 1</text>
+    <text x="655" y="210" class="val">1.00</text>
+    <text x="750" y="210" class="val">320.9</text>
+  </g>
+
+  <!-- QWEN MTP n=3: drafts 158.4 + verify 339.6 + overhead 86 = 584, 2.92 tokens -->
+  <g>
+    <text x="180" y="252" class="lbl" text-anchor="end">Qwen MTP n=3</text>
+    <text x="180" y="266" class="sm" text-anchor="end">4 threads</text>
+    <rect x="190" y="238" width="166" height="30" rx="2" fill="#fbbf24"/>
+    <text x="273" y="258" class="sm" fill="#78350f" text-anchor="middle">3 drafts</text>
+    <rect x="356" y="238" width="357" height="30" rx="3" fill="#db2777"/>
+    <text x="534" y="258" class="sm" fill="#fff" text-anchor="middle">verify 4</text>
+    <rect x="713" y="238" width="90" height="30" rx="2" fill="#cbd5e1"/>
+    <text x="758" y="258" class="sm" fill="#334155" text-anchor="middle">overhead</text>
+    <text x="655" y="258" class="val">2.92</text>
+    <text x="750" y="258" class="val" fill="#db2777">200.0</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(190, 356)">
+    <rect x="0" y="0" width="14" height="14" rx="2" fill="#fbbf24"/>
+    <text x="21" y="11" class="cap">draft passes</text>
+    <rect x="130" y="0" width="14" height="14" rx="2" fill="#2563eb"/>
+    <text x="151" y="11" class="cap">verify pass — the expensive part</text>
+    <rect x="400" y="0" width="14" height="14" rx="2" fill="#cbd5e1"/>
+    <text x="421" y="11" class="cap">sampling and bookkeeping</text>
+  </g>
+
+  <text x="16" y="392" class="cap">Qwen's draft head shares a 248,320-token output projection, so each draft costs 53 ms. Gemma's separate 59 MB head costs 4.9 ms.</text>
+</svg>

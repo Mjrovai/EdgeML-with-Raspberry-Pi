@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <style>
+    .ttl { font-size: 15px; font-weight: 600; fill: #0f172a; }
+    .lbl { font-size: 12px; fill: #334155; }
+    .sm  { font-size: 10.5px; fill: #64748b; }
+    .cap { font-size: 12px; fill: #475569; }
+    .num { font-size: 20px; font-weight: 700; }
+    .un  { font-size: 11px; fill: #64748b; }
+  </style>
+
+  <text x="16" y="28" class="ttl">One forward pass costs the same weight-read whether it carries 1 token or 4</text>
+
+  <!-- LEFT PANEL: batch 1 -->
+  <g transform="translate(30, 58)">
+    <text x="0" y="0" class="ttl" fill="#2563eb">Batch 1 — plain decode</text>
+
+    <!-- bytes bar -->
+    <text x="0" y="30" class="lbl">bytes moved</text>
+    <rect x="0" y="38" width="330" height="26" rx="3" fill="#2563eb"/>
+    <text x="165" y="56" fill="#fff" font-size="12" font-weight="600" text-anchor="middle">2.98 GB of weights</text>
+
+    <!-- compute bar -->
+    <text x="0" y="90" class="lbl">arithmetic</text>
+    <rect x="0" y="98" width="82" height="26" rx="3" fill="#93c5fd"/>
+    <text x="92" y="116" class="sm">8.7 GFLOP</text>
+
+    <!-- tokens -->
+    <text x="0" y="150" class="lbl">tokens produced</text>
+    <rect x="0" y="158" width="34" height="24" rx="3" fill="#1e40af"/>
+    <text x="17" y="175" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">1</text>
+
+    <line x1="0" y1="202" x2="330" y2="202" stroke="#cbd5e1"/>
+    <text x="0" y="228" class="lbl">intensity</text>
+    <text x="0" y="256" class="num" fill="#2563eb">3</text>
+    <text x="26" y="256" class="un">FLOP per byte</text>
+    <text x="0" y="282" class="cap" font-weight="600" fill="#2563eb">memory-bandwidth bound</text>
+    <text x="0" y="300" class="sm">extra cores just contend for the bus</text>
+    <text x="0" y="316" class="sm">→ 2 threads is the optimum</text>
+  </g>
+
+  <!-- arrow -->
+  <g transform="translate(400, 190)">
+    <line x1="0" y1="0" x2="56" y2="0" stroke="#f59e0b" stroke-width="2.5"/>
+    <polygon points="62,0 52,-6 52,6" fill="#f59e0b"/>
+    <text x="30" y="-14" font-size="11" font-weight="600" fill="#b45309" text-anchor="middle">MTP</text>
+  </g>
+
+  <!-- RIGHT PANEL: batch 4 -->
+  <g transform="translate(490, 58)">
+    <text x="0" y="0" class="ttl" fill="#db2777">Batch 4 — MTP verify pass</text>
+
+    <text x="0" y="30" class="lbl">bytes moved</text>
+    <rect x="0" y="38" width="330" height="26" rx="3" fill="#db2777"/>
+    <text x="165" y="56" fill="#fff" font-size="12" font-weight="600" text-anchor="middle">2.98 GB — unchanged</text>
+
+    <text x="0" y="90" class="lbl">arithmetic</text>
+    <rect x="0" y="98" width="328" height="26" rx="3" fill="#f9a8d4"/>
+    <text x="164" y="116" font-size="11" fill="#831843" text-anchor="middle">34.8 GFLOP — 4×</text>
+
+    <text x="0" y="150" class="lbl">tokens produced</text>
+    <rect x="0" y="158" width="34" height="24" rx="3" fill="#9d174d"/>
+    <text x="17" y="175" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">1</text>
+    <rect x="38" y="158" width="34" height="24" rx="3" fill="#9d174d"/>
+    <text x="55" y="175" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">2</text>
+    <rect x="76" y="158" width="34" height="24" rx="3" fill="#9d174d"/>
+    <text x="93" y="175" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">3</text>
+    <rect x="114" y="158" width="34" height="24" rx="3" fill="#9d174d"/>
+    <text x="131" y="175" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">4</text>
+    <text x="158" y="175" class="sm">if all drafts accepted</text>
+
+    <line x1="0" y1="202" x2="330" y2="202" stroke="#cbd5e1"/>
+    <text x="0" y="228" class="lbl">intensity</text>
+    <text x="0" y="256" class="num" fill="#db2777">12</text>
+    <text x="34" y="256" class="un">FLOP per byte</text>
+    <text x="0" y="282" class="cap" font-weight="600" fill="#db2777">pulled toward compute bound</text>
+    <text x="0" y="300" class="sm">now there is work for extra cores</text>
+    <text x="0" y="316" class="sm">→ 3–4 threads is the optimum</text>
+  </g>
+
+  <line x1="30" y1="392" x2="820" y2="392" stroke="#e2e8f0"/>
+  <text x="30" y="412" class="cap">Numbers are Qwen3.5 4B at Q4_K_XL. This is why a thread sweep run without MTP gives the wrong answer for a deployment that uses it.</text>
+</svg>

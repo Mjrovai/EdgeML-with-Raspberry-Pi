@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <style>
+    .ttl { font-size: 15px; font-weight: 600; fill: #0f172a; }
+    .lbl { font-size: 12px; fill: #334155; }
+    .sm  { font-size: 10.5px; fill: #64748b; }
+    .tok { font-size: 11px; font-weight: 600; fill: #ffffff; }
+    .cap { font-size: 12px; fill: #475569; }
+    .big { font-size: 13px; font-weight: 600; fill: #0f172a; }
+  </style>
+
+  <!-- time axis -->
+  <line x1="150" y1="368" x2="810" y2="368" stroke="#94a3b8" stroke-width="1.5"/>
+  <polygon points="810,368 803,364 803,372" fill="#94a3b8"/>
+  <text x="480" y="388" class="cap" text-anchor="middle">same wall-clock window — 460 ms on a Raspberry Pi 5</text>
+  <line x1="150" y1="52" x2="150" y2="368" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="810" y1="52" x2="810" y2="368" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- ROW 1: plain decode -->
+  <text x="16" y="72" class="ttl">Plain decode</text>
+  <text x="16" y="90" class="sm">one token per pass</text>
+  <text x="16" y="108" class="sm">2 threads</text>
+
+  <g>
+    <rect x="150" y="58" width="160" height="46" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="230" y="79" class="lbl" text-anchor="middle">full pass</text>
+    <text x="230" y="95" class="sm" text-anchor="middle">reads 1.07 GB</text>
+    <rect x="310" y="58" width="160" height="46" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="390" y="79" class="lbl" text-anchor="middle">full pass</text>
+    <text x="390" y="95" class="sm" text-anchor="middle">reads 1.07 GB</text>
+    <rect x="470" y="58" width="160" height="46" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="550" y="79" class="lbl" text-anchor="middle">full pass</text>
+    <text x="550" y="95" class="sm" text-anchor="middle">reads 1.07 GB</text>
+    <rect x="630" y="58" width="160" height="46" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="710" y="79" class="lbl" text-anchor="middle">full pass</text>
+    <text x="710" y="95" class="sm" text-anchor="middle">reads 1.07 GB</text>
+  </g>
+
+  <g>
+    <rect x="212" y="112" width="36" height="20" rx="3" fill="#2563eb"/>
+    <text x="230" y="126" class="tok" text-anchor="middle">tok</text>
+    <rect x="372" y="112" width="36" height="20" rx="3" fill="#2563eb"/>
+    <text x="390" y="126" class="tok" text-anchor="middle">tok</text>
+    <rect x="532" y="112" width="36" height="20" rx="3" fill="#2563eb"/>
+    <text x="550" y="126" class="tok" text-anchor="middle">tok</text>
+    <rect x="692" y="112" width="36" height="20" rx="3" fill="#2563eb"/>
+    <text x="710" y="126" class="tok" text-anchor="middle">tok</text>
+  </g>
+  <text x="820" y="126" class="big" fill="#2563eb">4 tokens</text>
+
+  <!-- divider -->
+  <line x1="16" y1="158" x2="844" y2="158" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- ROW 2: MTP -->
+  <text x="16" y="196" class="ttl">MTP, n=2</text>
+  <text x="16" y="214" class="sm">draft 2, verify 3</text>
+  <text x="16" y="232" class="sm">3 threads</text>
+
+  <!-- cycle 1 -->
+  <g>
+    <rect x="150" y="182" width="14" height="46" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="166" y="182" width="14" height="46" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="182" y="182" width="118" height="46" rx="4" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+    <text x="241" y="203" class="lbl" text-anchor="middle">verify 3</text>
+    <text x="241" y="219" class="sm" text-anchor="middle">reads 1.07 GB</text>
+    <rect x="302" y="182" width="20" height="46" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  </g>
+  <!-- cycle 2 -->
+  <g>
+    <rect x="324" y="182" width="14" height="46" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="340" y="182" width="14" height="46" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="356" y="182" width="118" height="46" rx="4" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+    <text x="415" y="203" class="lbl" text-anchor="middle">verify 3</text>
+    <text x="415" y="219" class="sm" text-anchor="middle">reads 1.07 GB</text>
+    <rect x="476" y="182" width="20" height="46" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  </g>
+  <!-- cycle 3 -->
+  <g>
+    <rect x="498" y="182" width="14" height="46" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="514" y="182" width="14" height="46" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="530" y="182" width="118" height="46" rx="4" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+    <text x="589" y="203" class="lbl" text-anchor="middle">verify 3</text>
+    <text x="589" y="219" class="sm" text-anchor="middle">reads 1.07 GB</text>
+    <rect x="650" y="182" width="20" height="46" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  </g>
+  <!-- cycle 4 partial -->
+  <g opacity="0.55">
+    <rect x="672" y="182" width="14" height="46" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="688" y="182" width="14" height="46" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="704" y="182" width="106" height="46" rx="4" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+    <text x="757" y="207" class="sm" text-anchor="middle">verify 3</text>
+  </g>
+
+  <!-- tokens out -->
+  <g>
+    <rect x="205" y="236" width="30" height="20" rx="3" fill="#db2777"/>
+    <text x="220" y="250" class="tok" text-anchor="middle">tok</text>
+    <rect x="239" y="236" width="30" height="20" rx="3" fill="#db2777"/>
+    <text x="254" y="250" class="tok" text-anchor="middle">tok</text>
+    <rect x="379" y="236" width="30" height="20" rx="3" fill="#db2777"/>
+    <text x="394" y="250" class="tok" text-anchor="middle">tok</text>
+    <rect x="413" y="236" width="30" height="20" rx="3" fill="#db2777"/>
+    <text x="428" y="250" class="tok" text-anchor="middle">tok</text>
+    <rect x="553" y="236" width="30" height="20" rx="3" fill="#db2777"/>
+    <text x="568" y="250" class="tok" text-anchor="middle">tok</text>
+    <rect x="587" y="236" width="30" height="20" rx="3" fill="#db2777"/>
+    <text x="602" y="250" class="tok" text-anchor="middle">tok</text>
+  </g>
+  <text x="820" y="250" class="big" fill="#db2777">6 tokens</text>
+
+  <!-- legend -->
+  <g transform="translate(150, 290)">
+    <rect x="0" y="0" width="14" height="14" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <text x="22" y="11" class="cap">draft head — 1 layer, 4.9 ms each</text>
+    <rect x="270" y="0" width="14" height="14" rx="2" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+    <text x="292" y="11" class="cap">verify — all weights once, 3 positions</text>
+    <rect x="570" y="0" width="14" height="14" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+    <text x="592" y="11" class="cap">sampling + bookkeeping</text>
+  </g>
+
+  <text x="150" y="330" class="cap">The verify pass reads the weights <tspan font-weight="600">once</tspan> and checks 3 token positions. On average 1.84 of them survive,</text>
+  <text x="150" y="348" class="cap">so one weight-read yields 1.84 tokens instead of 1. Measured on Gemma 4 E2B: 9.03 → 13.06 tok/s.</text>
+</svg>
