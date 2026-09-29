@@ -6,6 +6,8 @@
 
 The Orange Pi Zero 3W is a stick-sized board built around the Allwinner A733, an eight-core chip that mixes two fast Cortex-A76 cores with six efficient Cortex-A55 cores. On paper, it is a Raspberry Pi Zero-sized board with Raspberry Pi 5-class cores, which makes it an interesting candidate for running small language models at the edge.
 
+> A PDF version of this tutorial is available: [Orange-Pi-Zero-3W-SLM-Tutorial.pdf](Orange-Pi-Zero-3W-SLM-Tutorial.pdf).
+
 This chapter takes the board from a fresh image file to a working `llama-server` answering chat questions and captioning photos over the network. The setup is **headless**: the board is reached only through SSH, and we never plug in a monitor. Along the way, we cover the two first-boot traps we fell into, and we explain why this chip's mixed cores change how many threads `llama.cpp` should use.
 
 ## The board
@@ -115,7 +117,7 @@ diskutil list    # find the card, e.g. /dev/disk4 with a Linux partition disk4s1
 ```
 
 ```bash
-D=/opt/homebrew/opt/e2fsprogs/sbin
+D=$(brew --prefix e2fsprogs)/sbin
 diskutil unmountDisk /dev/disk4
 
 sudo $D/e2fsck -p /dev/disk4s1
@@ -134,6 +136,13 @@ diskutil eject /dev/disk4
 ```
 
 > Double-check the disk identifier with `diskutil list` before running these commands. Writing to the wrong disk destroys its data.
+
+The script [`scripts/setup-wifi.sh`](scripts/setup-wifi.sh) does all of the above in one step. It asks for the network name and password without echoing the password, checks the filesystem, writes the file with the right owner and mode, shows the result with the password masked, and ejects the card. As a safety check, it refuses to write unless the partition is labeled `opi_root`, the label of the Orange Pi root partition:
+
+```bash
+brew install e2fsprogs
+./scripts/setup-wifi.sh /dev/disk4s1     # your partition, from diskutil list
+```
 
 #### Linux
 
@@ -211,6 +220,8 @@ systemctl is-enabled orangepi-firstrun
 From now on, always shut down with `sudo poweroff` and wait for the LED to go off before removing power.
 
 > **If you get `Connection refused`.** First, check that the board is really on the network, for example in the router's client list. If it is, look at the SSH host keys: put the card back in the computer and list them with `sudo $D/debugfs -R "ls -l /etc/ssh" /dev/disk4s1` on macOS, or with `ls -l /mnt/opi/etc/ssh` on Linux (or in WSL). Keys with size `0` are the problem. Delete them with `debugfs -w` (`rm /etc/ssh/ssh_host_rsa_key`, and so on) on macOS, or with `sudo rm` on Linux. On the next boot, `sshd` generates new ones.
+>
+> On macOS, [`scripts/fix-ssh.sh`](scripts/fix-ssh.sh) automates this. It saves a diagnostic report (`opi-diagnostics.txt`) listing the host keys and any other empty files in `/etc`, deletes the empty keys, and adds a systemd drop-in so that `sshd` regenerates any missing or empty key before it starts. It has the same `opi_root` safety check: `./scripts/fix-ssh.sh /dev/disk4s1`.
 
 ### Update the system
 
@@ -517,6 +528,15 @@ The Orange Pi Zero 3W delivers about 89% of the Raspberry Pi 5's generation spee
 ## Conclusion
 
 The Orange Pi Zero 3W runs small language models well once three things are known: it can be set up entirely headless, its first boot must not be interrupted, and its mixed cores need different thread counts for prompt processing and generation. With `-t 2 -tb 8`, a 2B model chats at about 6 tokens per second and describes photos, all from a board the size of a stick of gum.
+
+## Scripts
+
+The [`scripts`](scripts/) folder has the two macOS helpers used in the headless setup, both tested against this image:
+
+- [`setup-wifi.sh`](scripts/setup-wifi.sh): writes the Wi-Fi connection to the card before the first boot.
+- [`fix-ssh.sh`](scripts/fix-ssh.sh): diagnoses and fixes the empty-SSH-host-key problem.
+
+Both need Homebrew's `e2fsprogs` and your password for `sudo`, and both take the card's root partition as their only argument.
 
 ## Benchmark data
 
