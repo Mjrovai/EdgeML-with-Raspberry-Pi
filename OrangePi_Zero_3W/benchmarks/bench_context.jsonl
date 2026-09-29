@@ -1,0 +1,32 @@
+{"part": "depth", "model": "Qwen3.5 2B Q4_K_XL", "test": "pp512", "depth": 0, "ts": 29.74}
+{"part": "depth", "model": "Qwen3.5 2B Q4_K_XL", "test": "pp512", "depth": 4096, "ts": 25.36}
+{"part": "depth", "model": "Qwen3.5 2B Q4_K_XL", "test": "pp512", "depth": 16384, "ts": 16.73}
+{"part": "depth", "model": "Qwen3.5 2B Q4_K_XL", "test": "tg128", "depth": 0, "ts": 5.9}
+{"part": "depth", "model": "Qwen3.5 2B Q4_K_XL", "test": "tg128", "depth": 4096, "ts": 4.5}
+{"part": "depth", "model": "Qwen3.5 2B Q4_K_XL", "test": "tg128", "depth": 16384, "ts": 2.62}
+{"part": "depth", "model": "MiniCPM5 2B Q4_K_M", "test": "pp512", "depth": 0, "ts": 22.5}
+{"part": "depth", "model": "MiniCPM5 2B Q4_K_M", "test": "pp512", "depth": 4096, "ts": 12.34}
+{"part": "depth", "model": "MiniCPM5 2B Q4_K_M", "test": "pp512", "depth": 16384, "ts": 4.93}
+{"part": "depth", "model": "MiniCPM5 2B Q4_K_M", "test": "tg128", "depth": 0, "ts": 6.33}
+{"part": "depth", "model": "MiniCPM5 2B Q4_K_M", "test": "tg128", "depth": 4096, "ts": 2.22}
+{"part": "depth", "model": "MiniCPM5 2B Q4_K_M", "test": "tg128", "depth": 16384, "ts": 0.74}
+{"part": "depth", "model": "Gemma 4 E2B QAT", "test": "pp512", "depth": 0, "ts": 35.67}
+{"part": "depth", "model": "Gemma 4 E2B QAT", "test": "pp512", "depth": 4096, "ts": 19.77}
+{"part": "depth", "model": "Gemma 4 E2B QAT", "test": "pp512", "depth": 16384, "ts": 7.9}
+{"part": "depth", "model": "Gemma 4 E2B QAT", "test": "tg128", "depth": 0, "ts": 7.2}
+{"part": "depth", "model": "Gemma 4 E2B QAT", "test": "tg128", "depth": 4096, "ts": 5.02}
+{"part": "depth", "model": "Gemma 4 E2B QAT", "test": "tg128", "depth": 16384, "ts": 2.84}
+{"part": "depth", "model": "Qwen3.5 4B Q4_K_XL", "test": "pp512", "depth": 0, "ts": 11.13}
+{"part": "depth", "model": "Qwen3.5 4B Q4_K_XL", "test": "pp512", "depth": 4096, "ts": 9.35}
+{"part": "depth", "model": "Qwen3.5 4B Q4_K_XL", "test": "pp512", "depth": 16384, "ts": 6.08}
+{"part": "depth", "model": "Qwen3.5 4B Q4_K_XL", "test": "tg128", "depth": 0, "ts": 2.73}
+{"part": "depth", "model": "Qwen3.5 4B Q4_K_XL", "test": "tg128", "depth": 4096, "ts": 1.82}
+{"part": "depth", "model": "Qwen3.5 4B Q4_K_XL", "test": "tg128", "depth": 16384, "ts": 0.92}
+{"part": "cache", "model": "Qwen3.5 2B Q4_K_XL", "config": "default", "turns": [{"turn": 1, "prompt_n": 4149, "prompt_s": 150.0, "cache_n": 0, "wall_s": 156.8}, {"turn": 2, "prompt_n": 78, "prompt_s": 4.8, "cache_n": 4145, "wall_s": 11.7}, {"turn": 3, "prompt_n": 73, "prompt_s": 4.5, "cache_n": 4219, "wall_s": 11.5}]}
+{"part": "cache", "model": "Qwen3.5 2B Q4_K_XL", "config": "checkpoint-min-step 256", "turns": [{"turn": 1, "prompt_n": 4149, "prompt_s": 149.9, "cache_n": 0, "wall_s": 156.7}, {"turn": 2, "prompt_n": 78, "prompt_s": 4.9, "cache_n": 4145, "wall_s": 11.7}, {"turn": 3, "prompt_n": 73, "prompt_s": 4.6, "cache_n": 4219, "wall_s": 11.5}]}
+{"part": "cache", "model": "MiniCPM5 2B Q4_K_M", "config": "default", "turns": [{"turn": 1, "prompt_n": 3965, "prompt_s": 231.0, "cache_n": 0, "wall_s": 239.4}, {"turn": 2, "prompt_n": 45, "prompt_s": 8.8, "cache_n": 3984, "wall_s": 17.4}, {"turn": 3, "prompt_n": 41, "prompt_s": 8.2, "cache_n": 4048, "wall_s": 25.9}]}
+{"part": "cache", "model": "MiniCPM5 2B Q4_K_M", "config": "checkpoint-min-step 256", "turns": [{"turn": 1, "prompt_n": 3965, "prompt_s": 235.9, "cache_n": 0, "wall_s": 244.3}, {"turn": 2, "prompt_n": 45, "prompt_s": 8.9, "cache_n": 3984, "wall_s": 17.5}, {"turn": 3, "prompt_n": 41, "prompt_s": 8.2, "cache_n": 4048, "wall_s": 26.2}]}
+{"part": "cache", "model": "Gemma 4 E2B QAT", "config": "default", "turns": [{"turn": 1, "prompt_n": 3637, "prompt_s": 174.5, "cache_n": 0, "wall_s": 179.6}, {"turn": 2, "prompt_n": 48, "prompt_s": 3.3, "cache_n": 3662, "wall_s": 8.5}, {"turn": 3, "prompt_n": 43, "prompt_s": 2.8, "cache_n": 3735, "wall_s": 7.5}]}
+{"part": "cache", "model": "Gemma 4 E2B QAT", "config": "checkpoint-min-step 256", "turns": [{"turn": 1, "prompt_n": 3637, "prompt_s": 130.9, "cache_n": 0, "wall_s": 136.0}, {"turn": 2, "prompt_n": 48, "prompt_s": 3.0, "cache_n": 3662, "wall_s": 8.1}, {"turn": 3, "prompt_n": 43, "prompt_s": 2.7, "cache_n": 3735, "wall_s": 7.5}]}
+{"part": "cache", "model": "Qwen3.5 4B Q4_K_XL", "config": "default", "turns": [{"turn": 1, "prompt_n": 4149, "prompt_s": 411.2, "cache_n": 0, "wall_s": 427.9}, {"turn": 2, "prompt_n": 78, "prompt_s": 16.2, "cache_n": 4145, "wall_s": 33.0}, {"turn": 3, "prompt_n": 73, "prompt_s": 15.3, "cache_n": 4219, "wall_s": 17.2}]}
+{"part": "cache", "model": "Qwen3.5 4B Q4_K_XL", "config": "checkpoint-min-step 256", "turns": [{"turn": 1, "prompt_n": 4149, "prompt_s": 431.0, "cache_n": 0, "wall_s": 447.6}, {"turn": 2, "prompt_n": 78, "prompt_s": 15.8, "cache_n": 4145, "wall_s": 32.4}, {"turn": 3, "prompt_n": 73, "prompt_s": 14.9, "cache_n": 4219, "wall_s": 16.7}]}

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="Helvetica, Arial, sans-serif">
+  <rect width="860" height="400" fill="#ffffff"/>
+  <text x="430" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1f2937">Two phases, two thread counts: -t 2 -tb 8</text>
+
+  <!-- Prompt phase -->
+  <rect x="25" y="55" width="395" height="320" rx="10" fill="#f9fafb" stroke="#9ca3af"/>
+  <text x="222" y="84" text-anchor="middle" font-size="16" font-weight="bold" fill="#374151">Prompt processing (many tokens at once)</text>
+  <text x="222" y="106" text-anchor="middle" font-size="13" fill="#4b5563">compute-bound: more cores help</text>
+  <text x="222" y="126" text-anchor="middle" font-size="13" font-weight="bold" fill="#374151">-tb 8 → all eight cores</text>
+  <g font-size="12" text-anchor="middle">
+    <rect x="55" y="150" width="70" height="55" rx="6" fill="#93c5fd" stroke="#2563eb"/><text x="90" y="182" fill="#1e3a8a">A55</text>
+    <rect x="135" y="150" width="70" height="55" rx="6" fill="#93c5fd" stroke="#2563eb"/><text x="170" y="182" fill="#1e3a8a">A55</text>
+    <rect x="215" y="150" width="70" height="55" rx="6" fill="#93c5fd" stroke="#2563eb"/><text x="250" y="182" fill="#1e3a8a">A55</text>
+    <rect x="55" y="215" width="70" height="55" rx="6" fill="#93c5fd" stroke="#2563eb"/><text x="90" y="247" fill="#1e3a8a">A55</text>
+    <rect x="135" y="215" width="70" height="55" rx="6" fill="#93c5fd" stroke="#2563eb"/><text x="170" y="247" fill="#1e3a8a">A55</text>
+    <rect x="215" y="215" width="70" height="55" rx="6" fill="#93c5fd" stroke="#2563eb"/><text x="250" y="247" fill="#1e3a8a">A55</text>
+    <rect x="310" y="150" width="80" height="55" rx="6" fill="#fdba74" stroke="#ea580c"/><text x="350" y="182" fill="#7c2d12">A76</text>
+    <rect x="310" y="215" width="80" height="55" rx="6" fill="#fdba74" stroke="#ea580c"/><text x="350" y="247" fill="#7c2d12">A76</text>
+  </g>
+  <text x="222" y="305" text-anchor="middle" font-size="13" fill="#374151">Qwen3.5 2B, 522-token prompt:</text>
+  <text x="222" y="327" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">18.5 t/s (2 threads) → 29.5 t/s (8 threads)</text>
+  <text x="222" y="352" text-anchor="middle" font-size="12" fill="#6b7280">also used for the MTP verify batch</text>
+
+  <!-- Generation phase -->
+  <rect x="440" y="55" width="395" height="320" rx="10" fill="#f9fafb" stroke="#9ca3af"/>
+  <text x="637" y="84" text-anchor="middle" font-size="16" font-weight="bold" fill="#374151">Token generation (one token at a time)</text>
+  <text x="637" y="106" text-anchor="middle" font-size="13" fill="#4b5563">memory-bound: slow cores hold back fast ones</text>
+  <text x="637" y="126" text-anchor="middle" font-size="13" font-weight="bold" fill="#374151">-t 2 → the two A76 cores only</text>
+  <g font-size="12" text-anchor="middle">
+    <rect x="470" y="150" width="70" height="55" rx="6" fill="#f3f4f6" stroke="#d1d5db"/><text x="505" y="182" fill="#9ca3af">idle</text>
+    <rect x="550" y="150" width="70" height="55" rx="6" fill="#f3f4f6" stroke="#d1d5db"/><text x="585" y="182" fill="#9ca3af">idle</text>
+    <rect x="630" y="150" width="70" height="55" rx="6" fill="#f3f4f6" stroke="#d1d5db"/><text x="665" y="182" fill="#9ca3af">idle</text>
+    <rect x="470" y="215" width="70" height="55" rx="6" fill="#f3f4f6" stroke="#d1d5db"/><text x="505" y="247" fill="#9ca3af">idle</text>
+    <rect x="550" y="215" width="70" height="55" rx="6" fill="#f3f4f6" stroke="#d1d5db"/><text x="585" y="247" fill="#9ca3af">idle</text>
+    <rect x="630" y="215" width="70" height="55" rx="6" fill="#f3f4f6" stroke="#d1d5db"/><text x="665" y="247" fill="#9ca3af">idle</text>
+    <rect x="725" y="150" width="80" height="55" rx="6" fill="#fdba74" stroke="#ea580c"/><text x="765" y="182" fill="#7c2d12">A76</text>
+    <rect x="725" y="215" width="80" height="55" rx="6" fill="#fdba74" stroke="#ea580c"/><text x="765" y="247" fill="#7c2d12">A76</text>
+  </g>
+  <text x="637" y="305" text-anchor="middle" font-size="13" fill="#374151">Qwen3.5 2B, llama-bench tg128:</text>
+  <text x="637" y="327" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">5.94 t/s (2 threads) vs 5.42 t/s (8 threads)</text>
+  <text x="637" y="352" text-anchor="middle" font-size="12" fill="#6b7280">the scheduler already places the 2 threads on the A76s</text>
+</svg>

@@ -1,0 +1,302 @@
+[
+ {
+  "model": "0.8B Q8",
+  "config": "A ref: taskset A76, -t 2",
+  "rep": 1,
+  "pp": 46.43,
+  "pn": 522,
+  "tg": 7.22,
+  "n": 128,
+  "temp": 65
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "A ref: taskset A76, -t 2",
+  "rep": 2,
+  "pp": 46.43,
+  "pn": 522,
+  "tg": 7.22,
+  "n": 128,
+  "temp": 67
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "A ref: taskset A76, -t 2",
+  "rep": 3,
+  "pp": 46.43,
+  "pn": 522,
+  "tg": 7.22,
+  "n": 128,
+  "temp": 67
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "B taskset A76, -t 2 -tb 8",
+  "rep": 1,
+  "pp": 48.07,
+  "pn": 522,
+  "tg": 7.22,
+  "n": 128,
+  "temp": 64
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "B taskset A76, -t 2 -tb 8",
+  "rep": 2,
+  "pp": 48.19,
+  "pn": 522,
+  "tg": 7.21,
+  "n": 128,
+  "temp": 68
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "B taskset A76, -t 2 -tb 8",
+  "rep": 3,
+  "pp": 48.2,
+  "pn": 522,
+  "tg": 7.22,
+  "n": 128,
+  "temp": 68
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "C -t 2 on A76 strict, -tb 8 all strict",
+  "rep": 1,
+  "pp": 36.41,
+  "pn": 522,
+  "tg": 7.21,
+  "n": 128,
+  "temp": 66
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "C -t 2 on A76 strict, -tb 8 all strict",
+  "rep": 2,
+  "pp": 36.27,
+  "pn": 522,
+  "tg": 7.21,
+  "n": 128,
+  "temp": 63
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "C -t 2 on A76 strict, -tb 8 all strict",
+  "rep": 3,
+  "pp": 36.26,
+  "pn": 522,
+  "tg": 7.23,
+  "n": 128,
+  "temp": 65
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "D -t 2 on A76 strict, -tb 8 all loose",
+  "rep": 1,
+  "pp": 62.78,
+  "pn": 522,
+  "tg": 7.21,
+  "n": 128,
+  "temp": 65
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "D -t 2 on A76 strict, -tb 8 all loose",
+  "rep": 2,
+  "pp": 62.03,
+  "pn": 522,
+  "tg": 7.21,
+  "n": 128,
+  "temp": 67
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "D -t 2 on A76 strict, -tb 8 all loose",
+  "rep": 3,
+  "pp": 62.09,
+  "pn": 522,
+  "tg": 7.21,
+  "n": 128,
+  "temp": 68
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "E -t 2 -tb 8, no affinity",
+  "rep": 1,
+  "pp": 63.05,
+  "pn": 522,
+  "tg": 7.21,
+  "n": 128,
+  "temp": 68
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "E -t 2 -tb 8, no affinity",
+  "rep": 2,
+  "pp": 62.38,
+  "pn": 522,
+  "tg": 7.23,
+  "n": 128,
+  "temp": 68
+ },
+ {
+  "model": "0.8B Q8",
+  "config": "E -t 2 -tb 8, no affinity",
+  "rep": 3,
+  "pp": 62.14,
+  "pn": 522,
+  "tg": 7.24,
+  "n": 128,
+  "temp": 68
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "A ref: taskset A76, -t 2",
+  "rep": 1,
+  "pp": 18.49,
+  "pn": 522,
+  "tg": 5.74,
+  "n": 128,
+  "temp": 71
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "A ref: taskset A76, -t 2",
+  "rep": 2,
+  "pp": 18.48,
+  "pn": 522,
+  "tg": 5.75,
+  "n": 128,
+  "temp": 70
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "A ref: taskset A76, -t 2",
+  "rep": 3,
+  "pp": 18.52,
+  "pn": 522,
+  "tg": 5.74,
+  "n": 128,
+  "temp": 73
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "B taskset A76, -t 2 -tb 8",
+  "rep": 1,
+  "pp": 19.99,
+  "pn": 522,
+  "tg": 5.76,
+  "n": 128,
+  "temp": 71
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "B taskset A76, -t 2 -tb 8",
+  "rep": 2,
+  "pp": 20.01,
+  "pn": 522,
+  "tg": 5.75,
+  "n": 128,
+  "temp": 69
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "B taskset A76, -t 2 -tb 8",
+  "rep": 3,
+  "pp": 19.99,
+  "pn": 522,
+  "tg": 5.76,
+  "n": 128,
+  "temp": 72
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "C -t 2 on A76 strict, -tb 8 all strict",
+  "rep": 1,
+  "pp": 20.57,
+  "pn": 522,
+  "tg": 5.74,
+  "n": 128,
+  "temp": 69
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "C -t 2 on A76 strict, -tb 8 all strict",
+  "rep": 2,
+  "pp": 20.52,
+  "pn": 522,
+  "tg": 5.75,
+  "n": 128,
+  "temp": 70
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "C -t 2 on A76 strict, -tb 8 all strict",
+  "rep": 3,
+  "pp": 20.52,
+  "pn": 522,
+  "tg": 5.74,
+  "n": 128,
+  "temp": 71
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "D -t 2 on A76 strict, -tb 8 all loose",
+  "rep": 1,
+  "pp": 29.55,
+  "pn": 522,
+  "tg": 5.74,
+  "n": 128,
+  "temp": 71
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "D -t 2 on A76 strict, -tb 8 all loose",
+  "rep": 2,
+  "pp": 29.56,
+  "pn": 522,
+  "tg": 5.74,
+  "n": 128,
+  "temp": 72
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "D -t 2 on A76 strict, -tb 8 all loose",
+  "rep": 3,
+  "pp": 29.42,
+  "pn": 522,
+  "tg": 5.75,
+  "n": 128,
+  "temp": 73
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "E -t 2 -tb 8, no affinity",
+  "rep": 1,
+  "pp": 29.69,
+  "pn": 522,
+  "tg": 5.75,
+  "n": 128,
+  "temp": 72
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "E -t 2 -tb 8, no affinity",
+  "rep": 2,
+  "pp": 29.48,
+  "pn": 522,
+  "tg": 5.76,
+  "n": 128,
+  "temp": 73
+ },
+ {
+  "model": "2B Q4_K_XL",
+  "config": "E -t 2 -tb 8, no affinity",
+  "rep": 3,
+  "pp": 29.45,
+  "pn": 522,
+  "tg": 5.74,
+  "n": 128,
+  "temp": 74
+ }
+]

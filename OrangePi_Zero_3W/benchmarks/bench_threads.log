@@ -1,0 +1,37 @@
+######## Qwen3.5-0.8B-UD-Q8_K_XL.gguf
+# temp cpub=53C cpul=54C
+== t2 A76 (cpus 6,7)
+| qwen35 0.8B Q8_0               |   1.11 GiB |   772.85 M | CPU        |       2 |           pp512 |         47.50 ± 0.04 |
+| qwen35 0.8B Q8_0               |   1.11 GiB |   772.85 M | CPU        |       2 |           tg128 |          7.55 ± 0.01 |
+# temp cpub=63C cpul=64C
+== t4 unpinned
+| qwen35 0.8B Q8_0               |   1.11 GiB |   772.85 M | CPU        |       4 |           pp512 |         53.72 ± 0.08 |
+| qwen35 0.8B Q8_0               |   1.11 GiB |   772.85 M | CPU        |       4 |           tg128 |          7.03 ± 0.01 |
+# temp cpub=65C cpul=64C
+== t6 A55 (cpus 0-5)
+| qwen35 0.8B Q8_0               |   1.11 GiB |   772.85 M | CPU        |       6 |           pp512 |         25.26 ± 0.01 |
+| qwen35 0.8B Q8_0               |   1.11 GiB |   772.85 M | CPU        |       6 |           tg128 |          6.19 ± 0.01 |
+# temp cpub=57C cpul=56C
+== t8 all
+| qwen35 0.8B Q8_0               |   1.11 GiB |   772.85 M | CPU        |       8 |           pp512 |         65.79 ± 0.32 |
+| qwen35 0.8B Q8_0               |   1.11 GiB |   772.85 M | CPU        |       8 |           tg128 |          6.34 ± 0.05 |
+# temp cpub=64C cpul=65C
+######## Qwen3.5-2B-UD-Q4_K_XL.gguf
+# temp cpub=64C cpul=65C
+== t2 A76 (cpus 6,7)
+| qwen35 2B Q4_K - Medium        |   1.28 GiB |     1.94 B | CPU        |       2 |           pp512 |         18.37 ± 0.05 |
+| qwen35 2B Q4_K - Medium        |   1.28 GiB |     1.94 B | CPU        |       2 |           tg128 |          5.94 ± 0.01 |
+# temp cpub=65C cpul=66C
+== t4 unpinned
+| qwen35 2B Q4_K - Medium        |   1.28 GiB |     1.94 B | CPU        |       4 |           pp512 |         23.67 ± 0.02 |
+| qwen35 2B Q4_K - Medium        |   1.28 GiB |     1.94 B | CPU        |       4 |           tg128 |          5.49 ± 0.01 |
+# temp cpub=70C cpul=70C
+== t6 A55 (cpus 0-5)
+| qwen35 2B Q4_K - Medium        |   1.28 GiB |     1.94 B | CPU        |       6 |           pp512 |         12.49 ± 0.00 |
+| qwen35 2B Q4_K - Medium        |   1.28 GiB |     1.94 B | CPU        |       6 |           tg128 |          4.27 ± 0.00 |
+# temp cpub=58C cpul=58C
+== t8 all
+| qwen35 2B Q4_K - Medium        |   1.28 GiB |     1.94 B | CPU        |       8 |           pp512 |         30.20 ± 0.10 |
+| qwen35 2B Q4_K - Medium        |   1.28 GiB |     1.94 B | CPU        |       8 |           tg128 |          5.42 ± 0.01 |
+# temp cpub=71C cpul=71C
+BENCH_DONE
